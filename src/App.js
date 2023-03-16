@@ -7,13 +7,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
-  const [logado, setLogado] = useState(true)
+  const [logado, setLogado] = useState([{}])
 
   return (
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginPage />}/>
+        <Route path="/" element={<LoginPage setLogado={setLogado}/>}/>
         <Route path="/cadastro" element={<SignUp />}/>
       </Routes>
     </BrowserRouter>

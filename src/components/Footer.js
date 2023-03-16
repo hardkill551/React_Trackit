@@ -1,13 +1,19 @@
 import styled from "styled-components"
-
+import { Link } from "react-router-dom"
 export default function Footer(){
     return(
-        <Foot>
+        <Foot data-test="menu">
+            <Link data-test="habit-link" to="/habitos">
             <p>Hábitos</p>
+            </Link>
+            <Link data-test="today-link"to="/hoje">
             <div>
-                <p>Hoje</p>
+                <span>Hoje</span>
             </div>
+            </Link>
+            <Link data-test="history-link"to="/historico">
             <p>Histórico</p>
+            </Link>
         </Foot>
     )
 }
@@ -21,8 +27,10 @@ left:0px;
 display:flex;
 justify-content:space-around;
 align-items:center;
-color:#52B6FF;
 
+p{
+    color:#52B6FF;
+}
 div{
     width:91px;
     height:91px;

@@ -22,7 +22,9 @@ input{
 input::placeholder{
     color:#DBDBDB;
 }
-
+a{
+    text-decoration:none;
+}
 `;
 
 

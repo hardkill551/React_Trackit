@@ -7,7 +7,8 @@ import Footer from "./Footer";
 import styled from "styled-components";
 
 export default function Inside({logado}) {
-  if(logado===true){
+  console.log(logado)
+  if(logado.length!==1){
   return (
     <BrowserRouter>
     <Background>
