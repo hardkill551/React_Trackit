@@ -18,6 +18,13 @@ input{
     margin-bottom:6px;
     font-size:20px;
     padding-left:11px;
+    
+}
+input:disabled{
+    background-color:#F2F2F2;
+}
+button:disabled{
+    opacity:0.7;
 }
 input::placeholder{
     color:#DBDBDB;
