@@ -7,6 +7,13 @@ justify-content:center;
 align-items:center;
 height:100vh;
 
+form{
+    display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
 img{
     margin-bottom:33px;
 }
