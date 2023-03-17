@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import Login from "./style.js";
@@ -10,6 +10,7 @@ export default function LoginPage({ setLogado }) {
   const [login, setLogin] = useState({ email: "", password: "" });
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
+  useEffect(()=>setLogado([{}]),[])
   return (
     <Login>
       <img src={Logo} alt="Logo" />

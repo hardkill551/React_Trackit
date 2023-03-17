@@ -7,7 +7,6 @@ import Footer from "./Footer";
 import styled from "styled-components";
 
 export default function Inside({logado}) {
-  console.log(logado)
   if(logado.length!==1){
   return (
     <BrowserRouter>
@@ -30,5 +29,5 @@ const Background = styled.div`
 background-color:#F2F2F2;
 margin-top:70px;
 margin-bottom:70px;
-height: calc(100vh - 140px);
+height: calc(100dvh - 140px);
 `

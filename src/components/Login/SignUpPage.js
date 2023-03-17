@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import Login from "./style.js";
 import Logo from "../../assets/Logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import base_url from "../../constants/url_base.js";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 
-export default function SignUp() {
+export default function SignUp({setLogado}) {
   const [sign, setSign] = useState({
     email: "",
     name: "",
@@ -15,7 +15,7 @@ export default function SignUp() {
   });
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
-
+  useEffect(()=>setLogado([{}]),[])
   return (
     <Login>
       <img src={Logo} alt="Logo" />

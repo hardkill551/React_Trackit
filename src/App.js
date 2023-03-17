@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage setLogado={setLogado}/>}/>
-        <Route path="/cadastro" element={<SignUp />}/>
+        <Route path="/cadastro" element={<SignUp setLogado={setLogado}/>}/>
       </Routes>
     </BrowserRouter>
     <Inside logado={logado}/>
