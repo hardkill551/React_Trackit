@@ -5,10 +5,10 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-height:100vh;
+height:100dvh;
 
 form{
-    display:flex;
+display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;

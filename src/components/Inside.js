@@ -14,9 +14,11 @@ export default function Inside({logado}) {
     <Background>
       <NavBar />
       <Routes>
+        
         <Route path="/habitos" element={<Habits />} />
         <Route path="/hoje" element={<Today />} />
         <Route path="/historico" element={<History />} />
+        
       </Routes>
       <Footer />
       </Background>
@@ -28,4 +30,5 @@ const Background = styled.div`
 background-color:#F2F2F2;
 margin-top:70px;
 margin-bottom:70px;
+height: calc(100vh - 140px);
 `
