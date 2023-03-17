@@ -1,10 +1,15 @@
+import { useContext } from "react"
 import styled from "styled-components"
+import { UrlContext } from "../ContextAPI/ContextUser"
+
 
 export default function NavBar(){
+    const {url} = useContext(UrlContext)
+
     return(
         <Nav>
             <p data-test="header">TrackIt</p>
-            <img src="https://yt3.googleusercontent.com/ytc/AL5GRJWF9DhK1icziCNSd-0dyRCDbOU3_op5GLtFSJo0WA=s900-c-k-c0x00ffffff-no-rj" alt="UserImg"/>
+            <img src={url} alt="UserImg"/>
         </Nav>
     )
 }

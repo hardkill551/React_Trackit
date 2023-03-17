@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
-  const [logado, setLogado] = useState([{}])
+  const [logado, setLogado] = useState(false)
 
   return (
     <>
