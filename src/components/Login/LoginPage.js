@@ -1,16 +1,19 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import Login from "./style.js";
 import base_url from "../../constants/url_base";
 import { ThreeDots } from "react-loader-spinner";
+import { UrlContext } from "../../ContextAPI/ContextUser"
 
 export default function LoginPage({ setLogado }) {
   const [login, setLogin] = useState({ email: "", password: "" });
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
   useEffect(()=>setLogado([{}]),[])
+
+  const {setUrl} = useContext(UrlContext)
   return (
     <Login>
       <img src={Logo} alt="Logo" />
@@ -48,7 +51,8 @@ export default function LoginPage({ setLogado }) {
     setDisable(true);
     const promise = axios.post(`${base_url}auth/login`, login);
     promise.then((res) => {
-      setLogado(res.data);
+      setLogado(true);
+      setUrl(res.data.image)
       navigate("/hoje");
     });
     promise.catch((err) => {
