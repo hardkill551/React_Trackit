@@ -8,16 +8,17 @@ import { useState } from "react";
 
 function App() {
   const [logado, setLogado] = useState(false)
+  const [token, setToken] = useState(null)
 
   return (
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginPage setLogado={setLogado}/>}/>
+        <Route path="/" element={<LoginPage setLogado={setLogado} setToken={setToken}/>}/>
         <Route path="/cadastro" element={<SignUp setLogado={setLogado}/>}/>
       </Routes>
     </BrowserRouter>
-    <Inside logado={logado}/>
+    <Inside token={token} logado={logado}/>
     </>
   );
 }

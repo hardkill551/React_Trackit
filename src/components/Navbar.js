@@ -1,15 +1,13 @@
-import { useContext } from "react"
 import styled from "styled-components"
-import { UrlContext } from "../ContextAPI/ContextUser"
-
+import { useContext } from "react"
+import { UserContext } from "../ContextAPI/ConxtextUser"
 
 export default function NavBar(){
-    const {url} = useContext(UrlContext)
-
+const {picture} = useContext(UserContext)
     return(
-        <Nav>
-            <p data-test="header">TrackIt</p>
-            <img src={url} alt="UserImg"/>
+        <Nav data-test="header">
+            <p>TrackIt</p>
+            <img src={picture} alt="UserImg"/>
         </Nav>
     )
 }
@@ -26,6 +24,7 @@ align-items:center;
 position:fixed;
 top:0px;
 left:0px;
+z-index:1;
 
 p{
     font-family: 'Playball', cursive;

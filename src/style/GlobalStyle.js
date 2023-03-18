@@ -18,7 +18,7 @@ input{
     margin-bottom:6px;
     font-size:20px;
     padding-left:11px;
-    
+    outline: 0;
 }
 input:disabled{
     background-color:#F2F2F2;
