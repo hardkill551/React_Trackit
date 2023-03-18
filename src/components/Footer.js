@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { UserContext } from "../ContextAPI/ConxtextUser";
 
 export default function Footer() {
-    const {progressbar} = useContext(UserContext)
+  const { progressbar } = useContext(UserContext);
   return (
     <Foot data-test="menu">
       <Link data-test="habit-link" to="/habitos">
@@ -20,10 +20,10 @@ export default function Footer() {
             background
             backgroundPadding={6}
             styles={buildStyles({
-                pathColor:"white",
-                textColor: "white",
-                trailColor: "#52b6ff",
-                backgroundColor:"#52b6ff",
+              pathColor: "white",
+              textColor: "white",
+              trailColor: "#52b6ff",
+              backgroundColor: "#52b6ff",
             })}
           />
         </div>
@@ -44,8 +44,8 @@ const Foot = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index:1;
-  background-color:white;
+  z-index: 1;
+  background-color: white;
   p {
     color: #52b6ff;
   }
@@ -54,6 +54,4 @@ const Foot = styled.div`
     height: 91px;
     margin-bottom: 40px;
   }
-
-  
 `;

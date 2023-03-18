@@ -34,6 +34,4 @@ a{
 }
 `;
 
-
-
 export default GlobalStyle;

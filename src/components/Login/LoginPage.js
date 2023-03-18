@@ -7,13 +7,12 @@ import base_url from "../../constants/url_base";
 import { ThreeDots } from "react-loader-spinner";
 import { UserContext } from "../../ContextAPI/ConxtextUser";
 
-
 export default function LoginPage({ setLogado, setToken }) {
   const [login, setLogin] = useState({ email: "", password: "" });
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
-  useEffect(()=>setLogado([{}]),[])
-  const {setPicture} = useContext(UserContext)
+  useEffect(() => setLogado([{}]), []);
+  const { setPicture } = useContext(UserContext);
 
   return (
     <Login>
@@ -53,9 +52,8 @@ export default function LoginPage({ setLogado, setToken }) {
     const promise = axios.post(`${base_url}auth/login`, login);
     promise.then((res) => {
       setLogado(true);
-      console.log(res.data)
-      setToken(res.data.token)
-      setPicture(res.data.image)
+      setToken(res.data.token);
+      setPicture(res.data.image);
       navigate("/hoje");
     });
     promise.catch((err) => {

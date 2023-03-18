@@ -22,13 +22,14 @@ export default function Habits({ token }) {
     axios
       .get(`${base_url}habits`, config)
       .then((res) => setHabits(res.data))
-      .catch((err) => console.log(err.response.data));
+      .catch();
   }, [habits, setHabits]);
   return (
     <Habit>
       <MyHabits>
         <h1>Meus Hábitos</h1>
-        <button data-test="habit-create-btn"
+        <button
+          data-test="habit-create-btn"
           onClick={() => {
             setCreate(!create);
             setDisable(false);
@@ -39,7 +40,8 @@ export default function Habits({ token }) {
       </MyHabits>
       {create ? (
         <CreateHabit data-test="habit-create-container">
-          <input data-test="habit-name-input"
+          <input
+            data-test="habit-name-input"
             value={selectedDay.name}
             onChange={(e) =>
               setSelectedDay({ ...selectedDay, name: e.target.value })
@@ -58,10 +60,26 @@ export default function Habits({ token }) {
             />
           ))}
           <div>
-            <button data-test="habit-create-cancel-btn" onClick={() => {
-            setCreate(false);
-          }}>Cancelar</button>
-            <button data-test="habit-create-save-btn" onClick={() => post()} disabled={disable}>{disable ? <ThreeDots color="white" height={35} width={55}/> : <p>Entrar</p>}</button>
+            <button
+              data-test="habit-create-cancel-btn"
+              disabled={disable}
+              onClick={() => {
+                setCreate(false);
+              }}
+            >
+              Cancelar
+            </button>
+            <button
+              data-test="habit-create-save-btn"
+              onClick={() => post()}
+              disabled={disable}
+            >
+              {disable ? (
+                <ThreeDots color="white" height={35} width={55} />
+              ) : (
+                <p>Entrar</p>
+              )}
+            </button>
           </div>
         </CreateHabit>
       ) : null}
@@ -72,10 +90,14 @@ export default function Habits({ token }) {
           começar a trackear!
         </p>
       ) : (
-        habits.map((a) => (
-          <CreatedHabit data-test="habit-container">
+        habits.map((a, i) => (
+          <CreatedHabit key={i} data-test="habit-container">
             <p data-test="habit-name">{a.name}</p>
-            <ion-icon data-test="habit-delete-btn" name="trash-outline" onClick={() => del(a)}></ion-icon>
+            <ion-icon
+              data-test="habit-delete-btn"
+              name="trash-outline"
+              onClick={() => del(a)}
+            ></ion-icon>
             <div>
               {weekdays.map((d, i) => (
                 <Day data-test="habit-day" key={i} array={a.days} i={i}>
@@ -92,8 +114,8 @@ export default function Habits({ token }) {
   function del(a) {
     if (window.confirm("Deseja deletar o hábito?")) {
       const promise = axios.delete(`${base_url}habits/${a.id}`, config);
-      promise.then((res) => console.log(res.data));
-      promise.catch((err) => console.log(err.response.data));
+      promise.then();
+      promise.catch();
     }
   }
 
@@ -101,15 +123,13 @@ export default function Habits({ token }) {
     setDisable(true);
     const promise = axios.post(`${base_url}habits`, selectedDay, config);
     promise.then((res) => {
-      console.log(res.data);
       setCreate(false);
       setSelectedDay({ name: "", days: [] });
     });
     promise.catch((res) => {
-      alert(res.response.data.message)
-      setDisable(false)
+      alert(res.response.data.message);
+      setDisable(false);
     });
-    
   }
 }
 

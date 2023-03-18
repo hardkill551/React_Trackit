@@ -6,7 +6,7 @@ import base_url from "../../constants/url_base.js";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 
-export default function SignUp({setLogado}) {
+export default function SignUp({ setLogado }) {
   const [sign, setSign] = useState({
     email: "",
     name: "",
@@ -15,7 +15,7 @@ export default function SignUp({setLogado}) {
   });
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
-  useEffect(()=>setLogado([{}]),[])
+  useEffect(() => setLogado([{}]), []);
   return (
     <Login>
       <img src={Logo} alt="Logo" />
