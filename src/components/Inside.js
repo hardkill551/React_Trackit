@@ -1,5 +1,5 @@
 import Habits from "./Habits/Habits";
-import Today from "./Today";
+import Today from "./Today/Today";
 import History from "./History";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./Navbar";
@@ -13,7 +13,7 @@ export default function Inside({ logado, token }) {
         <NavBar />
         <Background>
           <Routes>
-            <Route path="/habitos" element={<Habits token={token} />} />
+            <Route path="/habitos" element={<Habits />} />
             <Route path="/hoje" element={<Today />} />
             <Route path="/historico" element={<History />} />
           </Routes>

@@ -1,23 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Habit, MyHabits, CreateHabit, CreatedHabit } from "./style";
 import Days from "./Days";
 import styled from "styled-components";
 import axios from "axios";
 import base_url from "../../constants/url_base";
 import { ThreeDots } from "react-loader-spinner";
+import { UserContext } from "../../ContextAPI/ConxtextUser";
 
-export default function Habits({ token }) {
-  const [weekdays, setWeekdays] = useState(["D", "S", "T", "Q", "Q", "S", "S"]);
+export default function Habits() {
+  const weekdays=["D", "S", "T", "Q", "Q", "S", "S"];
   const [selectedDay, setSelectedDay] = useState({ name: "", days: [] });
   const [create, setCreate] = useState(false);
   const [habits, setHabits] = useState([]);
   const [disable, setDisable] = useState(false);
-
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  const {config} = useContext(UserContext)
   useEffect(() => {
     axios
       .get(`${base_url}habits`, config)

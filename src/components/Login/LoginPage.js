@@ -11,8 +11,9 @@ export default function LoginPage({ setLogado, setToken }) {
   const [login, setLogin] = useState({ email: "", password: "" });
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
+  
   useEffect(() => setLogado([{}]), []);
-  const { setPicture } = useContext(UserContext);
+  const { setConfig, setPicture } = useContext(UserContext);
 
   return (
     <Login>
@@ -52,7 +53,11 @@ export default function LoginPage({ setLogado, setToken }) {
     const promise = axios.post(`${base_url}auth/login`, login);
     promise.then((res) => {
       setLogado(true);
-      setToken(res.data.token);
+      setConfig({
+        headers: {
+          Authorization: `Bearer ${res.data.token}`,
+        },
+      });
       setPicture(res.data.image);
       navigate("/hoje");
     });
